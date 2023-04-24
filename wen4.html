@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+
+	<title>Feliz Cumpleaños!</title>
+	<style>
+		body {
+			background-color: #f9e4b7;
+			font-family: Arial, sans-serif;
+			text-align: center;
+			margin: 0;
+			padding: 0;
+		}
+		h1 {
+			color: #ff4081;
+			margin-top: 50px;
+			font-size: 60px;
+		}
+		h2 {
+			color: #c51162;
+			font-size: 30px;
+			margin-top: 40px;
+		}
+		p {
+			font-size: 20px;
+			color: #333333;
+			margin-top: 30px;
+			line-height: 1.5;
+			padding: 0 50px;
+		}
+		img {
+			margin-top: 30px;
+			border-radius: 50%;
+			border: 5px solid white;
+			box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.2);
+		}
+		button {
+			background-color: #c51162;
+			color: white;
+			font-size: 18px;
+			border: none;
+			padding: 10px 20px;
+			border-radius: 5px;
+			margin-top: 30px;
+			cursor: pointer;
+		}
+		button:hover {
+			background-color: #ff4081;
+		}
+
+		/* Estilo para la ventana emergente */
+		.popup {
+			position: fixed;
+			z-index: 1;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			overflow: auto;
+			background-color: rgba(0, 0, 0, 0.4);
+		}
+
+		/* Estilo para el contenedor de la ventana emergente */
+		.popup-content {
+	background-color: white;
+	border: 1px solid black;
+	border-radius: 10px;
+	padding: 20px;
+	max-width: 700px; /* nuevo estilo */
+	text-align: center;
+	box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+	position: relative;
+	margin: auto;
+	top: 10%;
+}
+	.popup-content img {
+	max-width: 40%;
+	height: auto;
+	margin-bottom: 20px;
+}
+
+		/* Estilo para el botón de cerrar */
+		.close {
+			color: #aaaaaa;
+			float: right;
+			font-size: 28px;
+			font-weight: bold;
+			margin-top: -10px;
+			margin-right: -10px;
+			cursor: pointer;
+		}
+
+		.close:hover,
+		.close:focus {
+			color: #000;
+			text-decoration: none;
+			cursor: pointer;
+		}
+		
+		@media (max-width: 768px) {
+	h1 {
+		font-size: 32px;
+	}
+
+	p {
+		font-size: 18px;
+		line-height: 1.5;
+	}
+
+	.popup-content {
+		max-width: 80%;
+		padding: 10px;
+	}
+
+
+
+
+}
+	</style>
+</head>
+<body>
+	<h1>¡Feliz Cumpleaños!</h1>
+	<!--<img src="https://via.placeholder.com/200x200" alt="Imagen de cumpleaños">-->
+	<h2>Boba <3,</h2>
+	<p>En este día tan especial, quiero desearte un muy feliz cumpleaños. Espero que este nuevo año te traiga mucha felicidad, amor, éxito y todo lo que desees. Eres una persona muy especial en mi vida y espero que hoy te sientas tan amada y especial como realmente eres.</p>
+	<button onclick="popup()">Enviar Deseos</button>
+	<script>
+	// Función para mostrar la ventana emergente
+	function popup() {
+		// Crear el div de la ventana emergente
+		var popup = document.createElement("div");
+		popup.className = "popup";
+
+		// Crear el contenedor de la ventana emergente
+		var popupContent = document.createElement("div");
+		popupContent.className = "popup-content";
+
+		// Agregar el botón de cerrar
+		var closeBtn = document.createElement("span");
+		closeBtn.className = "close";
+		closeBtn.innerHTML = "&times;";
+		closeBtn.addEventListener("click", function() {
+			document.body.removeChild(popup);
+		});
+
+		// Agregar la imagen y el mensaje dentro del contenedor de la ventana emergente
+		var popupImg = document.createElement("img");
+		popupImg.src = "https://i.ibb.co/SnztrdD/Whats-App-Image-2023-04-23-at-8-42-13-PM.jpg";
+		popupImg.alt = "Imagen de la ventana emergente";
+
+
+		var popupText = document.createElement("p");
+		popupText.textContent = "Ya, luego del mensaje genérico jajaja seguro pensabas que me había olvidado, pero desde el momento en que te conocí te guardé en mi calendario para acordarme, porque no te voy a mentir tengo mala memoria jajaj. Te quiero mucho wen, espero que la hayas pasado lindo y que todo vaya mejor de ahora en adelante. Me alegro de haberte conocido :)";
+
+		// Agregar todos los elementos al contenedor de la ventana emergente
+		popupContent.appendChild(closeBtn);
+		popupContent.appendChild(popupImg);
+		popupContent.appendChild(popupText);
+		popup.appendChild(popupContent);
+
+		// Agregar el div de la ventana emergente al cuerpo del documento
+		document.body.appendChild(popup);
+
+		// Agregar un event listener para cerrar la ventana emergente al hacer clic fuera de ella
+		popup.addEventListener("click", function(e) {
+			if (e.target == popup) {
+				document.body.removeChild(popup);
+			}
+		});
+	}
+</script>
+
+
+</body>
+</html>
